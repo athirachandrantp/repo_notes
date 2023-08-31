@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h3>My Notes</h3>
+
+<div>
+<!--{{a.id}}-->
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+        </tr>
+            {% for a in notes %}
+        <tr>
+            <td>{{a.title}}</td>
+            <td>{{a.description}}</td>
+            <td>{{a.notes_date | timesince }}</td>
+            <td><a href="{% url 'view-notes' a.id %}">Notes</a></td>
+            <td>{{a.owner}}</td>
+
+
+
+        </tr>
+            {% endfor %}
+    </table>
+
+
+</div>
+
+
+
+
+
+
+{% endblock %}
+
